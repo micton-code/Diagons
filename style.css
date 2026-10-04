@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+
+/*LOGO CLAVE*/
+.header-container{
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.header-container_logo{
+    width: 320px;
+    height: 320px;
+}
+
+
+main{
+    width: 100%;
+    height: auto;
+}
+/*REPRODUCTOR*/
+main .musica{
+    /*alineacion*/
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    /*dimensiones del contenedor*/
+    padding: 1.5px;
+    width: 90%;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 28px;
+    /*color y sombreado*/
+    background-color: #dbb50c;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+main .musica audio{
+    width: 100%;
+}
+    /*quita cualquier sombreado o fondo del panel de controles predeterminado del reproductor en navegadores basados en Webkit, como chrome y safari*/
+main .musica audio::-webkit-media-controls-panel {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* TITULO */
+main h1 {
+    text-align: center;
+    font-family: 'Domine', serif;
+    -webkit-text-stroke: 1px rgba(245, 229, 4, 0.4);/*borde de letras ,puede no ser compatible con todos los navegadores*/
+    text-shadow: 2px 2px 4px rgba(245, 229, 4, 0.4);
+    padding: 30px 0 30px;
+    
+}
+
+/* PUBLICIDAD */
+.publicidad-container {
+    width: 27rem;
+    height: 12rem;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 30px;
+    
+}
+.ad-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.ad-image.active {
+    opacity: 1;
+}
+
+/* CAJA DE COMENTARIOS */
+main .cajaDeComentarios {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(207.8deg, #f7cc09 16.69%, #fff 100%);
+    
+}
+
+/* FOOTER */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+}
+.footer-container .up {
+    display: flex;
+    width: 100%;
+    height: 130px;
+    background-color: white;
+    font-family: 'Domine', serif;
+}
+.footer-container .up section {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.up .left ul {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.8rem;
+    list-style: none;
+}
+.up .left li {
+    margin: 10px 0;
+}
+.up .left a {
+    text-decoration: none;
+    color: var(--white);
+}
+.up .right img {
+    width: 90px;
+    height: 90px;
+} 
+.footer-container .down {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}

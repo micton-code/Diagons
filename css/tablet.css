@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.logoClaveOnline .logoPrincipal {
+  background-color: #ddb00d;
+}
+.logoClaveOnline .logoPrincipal .logoPrincipal-container {
+  width: 320px;
+  height: 70px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-image: url(../images/claveMobile.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .cabecera {
+  display: grid;
+  grid-template-areas: "reproductor reproductor" "titulo publicidad" "presentacion publicidad";
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin: 40px 50px 30px 50px;
+  align-items: center;
+  background: #fff;
+  color: #fff;
+}
+main .cabecera h1 {
+  grid-area: titulo;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #000;
+}
+main .cabecera .reproductor {
+  grid-area: reproductor;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+main .cabecera .reproductor .logoPrincipal {
+  width: 100%;
+  margin-bottom: 30px;
+}
+main .cabecera .reproductor .logoPrincipal-container {
+  width: 100px;
+  height: 100px;
+  background: url(../images/claveMobile.jpeg) center/cover no-repeat;
+}
+main .cabecera .presentacion {
+  grid-area: presentacion;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+main .cabecera .publicidad {
+  grid-area: publicidad;
+  text-align: center;
+}
+main .cabecera .publicidad-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+main .cabecera .publicidad .ad-image {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+main .cabecera .publicidad .ad-image:hover {
+  transform: scale(1.05);
+}
+main .cabecera .publicidad-botones {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+main .cabecera .publicidad-botones button {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+main .cabecera .publicidad-botones button:hover {
+  background: #ffd84f;
+}
+main .notiClaveOnline {
+  font-style: "Roboto", sans-serif;
+  padding: 40px;
+}
+main .notiClaveOnline h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+main .notiClaveOnline .noticias-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+main .notiClaveOnline .noticia h3 {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  margin: 10px 0;
+}
+main .notiClaveOnline .noticia p {
+  font-size: 1.6rem;
+  padding: 0 6rem 1.5rem;
+}
+main .notiClaveOnline .noticia img {
+  height: 180px;
+  width: 35rem;
+  border-radius: 0 20px 0px 60px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+main .notiClaveOnline .noticia:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+main .music-container audio {
+  width: 100%;
+  border-radius: 10px;
+}
+main {
+  /* SOBRE CLAVE */
+}
+main .sobreClave {
+  text-align: justify;
+  padding: 0 20px 30px;
+  background-color: #fdf1bd;
+}
+main .sobreClave h2 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2.2rem;
+  color: #333;
+}
+main .sobreClave p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #555;
+}/*# sourceMappingURL=tablet.css.map */

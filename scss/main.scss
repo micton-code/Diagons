@@ -1,0 +1,361 @@
+// 1. VARIABLES (Centralizamos todo para cambios rápidos):
+// 1.1 Fuentes de Texto
+$font-stack: "Roboto", sans-serif;
+// 1.2 Colores
+$color-clave: #ddb00d;
+$color-clave-light: #f7cc09;
+$color-bg-noticias: #fdf1bd;
+$color-whatsapp-start: #5eff7c;
+$color-whatsapp-end: #056104;
+$color-telegram-start: #32e1ed;
+$color-telegram-end: #1a8bdb;
+$color-texto-principal: #21211f;
+$color-blanco: #ffffff;
+// 1.3 Dimensiones
+$header-height: 70.5px; // Coincide exactamente con la altura del header
+
+
+// 2. RESET Y CONFIGURACIÓN BASE
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+
+
+// 3. REUTILIZACIÓN (Placeholders)
+//3.1 Tarjetas de Redes Sociales (WhatsApp y Telegram)
+%flex-social-card {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 12px 20px;
+    font-family: $font-stack;
+    color: black;
+    font-size: 1.6rem;
+}
+//3.1.1 Estructura de texto para noticias clave (WhatsApp y Telegram)
+%estructura-de-info-texto-noticiasClave {
+    text-align: center;
+    line-height: 30px;
+    h2{
+        font-size: 1.7rem;
+    }
+    .texB{
+        font-size: 1.4rem;
+    }
+    .enlace-noticiasClave{
+        
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+// CODIGO PRINCIPAL
+// 4. HEADER (LOGO CLAVE ONLINE)
+.logoClaveOnline {
+    //anclaje superior fijo del header
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    //estilos visuales
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    height: $header-height;
+    border-bottom: #969a9c 1px solid;
+    
+    // Logo de Clave 99.3 FM
+    .logoPrincipal {
+        background-color: $color-clave;
+        
+        .logoPrincipal-container {
+            //posicionamiento y dimensiones
+            width: 100%;        // Ocupa el ancho disponible en móvil
+            max-width: 320px;   // Pero no más de 320px para no pixelarse
+            height: 70px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            //imagen de fondo
+            background-image: url(../images/claveMobile.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            
+        }
+    }
+}
+
+// 5. MAIN
+main {
+    width: 100%;
+    margin-top: $header-height + 15px; // Espacio justo después del header fijo
+
+    // CABECERA
+    .cabecera {
+        // REPRODUCTOR
+        .reproductor {
+            // Reproductor de la emisora
+            .music-container {
+                //dimensiones del contenedor
+                width: 90%;
+                min-width: 283px;
+                max-width: 400px;
+                border-radius: 28px;
+                padding: 2.5px;
+                // alineacion
+                display: flex;
+                justify-content: center;
+                margin: 0 auto 36px;
+                /*color y sombreado*/
+                background-color: #dbb50c;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+                audio {
+                    width: 100%;
+                    &::-webkit-media-controls-panel {
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // NOTICIAS CLAVE ONLINE
+    .notiClaveOnline {
+        max-width: 100%;
+        padding: 20px;
+        background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
+        border-radius: 8px;
+        font-family: $font-stack;
+
+        h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: #21211f;
+            margin-bottom: 3rem;
+        }
+
+        .noticias-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .noticia {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            }
+
+            img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin: 10px 0px 20px;
+            }
+
+            h3 {
+            font-size: 2rem;
+            text-shadow: #ddb00d 0.5px 0.5px 2px;
+            color: #21211f;
+            padding: 0.8rem 1rem;
+            margin: 1rem 0;
+            }
+
+            p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 1rem 1rem;
+            }
+        }
+    }
+
+    //PUBLICIDAD
+    .publicidad {
+        .publicidad-container{
+            //dimensiones
+            width: 30rem;
+            height: 20rem;
+            position: relative;
+            overflow: hidden;
+            margin: 30px auto;
+            .ad-image {
+                width: 100%;
+                height: 100%;
+                border-radius: 6px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+        .publicidad-botones {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 30px;
+            #prevButton, #nextButton {
+                background-color: #2168d3;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+                color: white;
+                padding: 10px 15px;
+                border: .2px solid rgba(75, 73, 73, 0);
+                border-radius: 8px;
+
+                cursor: pointer;
+
+
+            }
+        }
+    }
+
+    //PRESENTACION EMISORA
+    .presentacionEmisora{
+        // TITULO
+        h1 {
+            font-family: $font-stack;
+            text-align: center;
+            font-size: 2.8rem;
+            color: black;
+            margin: 60px 0 30px;
+        }
+        //PRESENTACION
+        .presentacion {
+            text-align: justify;
+            padding: 0 20px 40px;
+            p {
+                font-family: $font-stack;
+                font-size: 1.6rem;
+                color: black;
+            }
+        }
+    }
+
+    //NOTICIAS CLAVE
+    .noticiasClave{
+        //telegram
+        .container-noticiasClave-telegram{
+            @extend %flex-social-card;
+            background: linear-gradient(54deg,$color-blanco 10%, $color-telegram-start 50%, $color-telegram-end 100%);
+            .img-noticiasClave-telegram{
+                .icoTele{
+                    width: 50px;
+                }
+            }
+            .texto-noticiasClave{
+                @extend %estructura-de-info-texto-noticiasClave;
+        }    
+        }
+        //whatsapp
+        .container-noticiasClave{
+            @extend %flex-social-card;
+            background: linear-gradient(169deg,$color-blanco 10%, $color-whatsapp-start 50%, $color-whatsapp-end 100%);
+            .img-noticiasClave{
+                .icoWhats{
+                    width: 50px;
+                }
+            }
+            .texto-noticiasClave{
+                @extend %estructura-de-info-texto-noticiasClave;
+            }
+        }
+    }
+
+   
+    //CAJA DE COMENTARIOS (revisar)
+    .cajaDeComentarios {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 30px 0px;
+        background: linear-gradient(207.8deg, #f7cc09 16.69%, #fff 100%);
+    }
+
+    .sobreClave {
+            text-align: justify;
+            padding: 30px 20px;
+            background-color: #fdf1bd;
+            h2{
+                font-family: $font-stack;
+                text-align: center;
+                font-size: 2rem;
+                color: black;
+                margin-bottom: 10px;
+            }
+            p {
+                font-family: $font-stack;
+                font-size: 1.6rem;
+                color: black;
+            }
+    }
+}
+
+// FOOTER
+footer {
+    width: 100%;
+    height: auto;
+    .footer-container {
+        .up{
+            display: flex;
+            width: 100%;
+            height: 130px;
+            background-color: orange;
+            section {
+                display: flex;
+                width: 50%;
+                justify-content: center;
+                align-items: center;
+            }
+            .left {
+                ul {
+                    font-family: $font-stack;
+                    font-size: 1.4rem;
+                    font-weight: 300;
+                    line-height: 1.8rem;
+                    list-style: none;
+                    li {
+                        margin: 10px 0;
+                        a {
+                            text-decoration: none;
+                            color: black;
+                        }
+                    }
+                }
+            }
+            .right {
+                img {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 12px 2px 12px 2px;
+                }
+            }
+        }
+        .down {
+            width: 100%;
+            padding-bottom: 30px;
+            font-size: 1.2rem;
+            height: auto;
+            text-align: center;   
+            background-color: orange; 
+            color: black;
+        }
+    }
+}

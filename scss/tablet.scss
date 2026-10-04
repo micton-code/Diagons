@@ -1,0 +1,197 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+// VARIABLES
+    // Fuentes de Texto
+    $font-stack: "Roboto", sans-serif;
+
+
+// CODIGO
+// HEADER (LOGO CLAVE ONLINE)
+.logoClaveOnline {
+    .logoPrincipal {
+        background-color: #ddb00d;
+        .logoPrincipal-container {
+            width: 320px;
+            height: 70px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            background-image: url(../images/claveMobile.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }   
+}
+
+// MAIN
+main {
+    // Cabecera
+    .cabecera {
+        display: grid;
+        grid-template-areas:
+            "reproductor reproductor"
+            "titulo publicidad"
+            "presentacion publicidad";
+            
+        grid-template-columns: 1fr 2fr;
+        gap: 1.5rem;
+        margin: 40px 50px 30px 50px;
+        align-items: center;
+        background: #fff;
+        color: #fff;
+
+        h1 {
+            grid-area: titulo;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #000;
+        }
+
+        .reproductor {
+            grid-area: reproductor;
+            display: grid;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .logoPrincipal {
+                width: 100%;
+                margin-bottom: 30px;
+
+                &-container {
+                    width: 100px;
+                    height: 100px;
+                    background: url(../images/claveMobile.jpeg) center/cover no-repeat;
+                }
+            }
+        }
+
+        .presentacion {
+            grid-area: presentacion;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .publicidad {
+            grid-area: publicidad;
+            text-align: center;
+
+            &-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .ad-image {
+                width: 100%;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            &-botones {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+
+                button {
+                    background: #ffcc00;
+                    color: #000;
+                    border: none;
+                    padding: 0.5rem 1rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: background 0.3s ease;
+
+                    &:hover {
+                        background: #ffd84f;
+                    }
+                }
+            }
+        }
+        
+    }
+
+    // NOTICIAS CLAVE ONLINE
+    .notiClaveOnline {
+            font-style: $font-stack;
+            padding: 40px;
+            h2 {
+                font-size: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .noticias-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .noticia {
+                h3 {
+                    font-size: 2rem;
+                    padding: 1rem;
+                    text-align: center;
+                    margin:10px 0;
+                }
+
+                p {
+                    font-size: 1.6rem;
+                    padding: 0 6rem 1.5rem;
+                }
+
+                img {
+                    height: 180px;
+                    width: 35rem;
+                    border-radius: 0 20px 0px 60px;
+                    margin: 0 auto;
+                    margin-bottom: 15px;
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+                }
+            }
+        }
+
+    .music-container {
+    audio {
+        width: 100%;
+        border-radius: 10px;
+    }
+    }
+    /* SOBRE CLAVE */
+    .sobreClave {
+        text-align: justify;
+        padding: 0 20px 30px;
+        background-color: #fdf1bd;
+
+        h2 {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2.2rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: #555;
+        }
+    }
+}
+
+// FOOTER
