@@ -33,46 +33,54 @@ main .noticiasClave .container-noticiasClave .texto-noticiasClave .enlace-notici
   color: black;
 }
 
-.logoClaveOnline {
+.logo-Diagons {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 92px;
   z-index: 1000;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  height: 70.5px;
   border-bottom: #969a9c 1px solid;
 }
-.logoClaveOnline .logoPrincipal {
-  background-color: #ddb00d;
-}
-.logoClaveOnline .logoPrincipal .logoPrincipal-container {
-  width: 100%;
-  max-width: 320px;
-  height: 70px;
+.logo-Diagons .logoPrincipal {
+  background-color: #0d41ba;
+  height: 92px;
+  width: 320px;
   margin: 0 auto;
-  margin-bottom: 20px;
-  background-image: url(../images/claveMobile.jpeg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+}
+.logo-Diagons .logoPrincipal picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.logo-Diagons .logoPrincipal picture img {
+  max-width: 320px;
+  width: 70%;
+  height: auto;
 }
 
 main {
   width: 100%;
-  margin-top: 85.5px;
+  margin-top: 102px;
+}
+main .cabecera .reproductor {
+  display: flex;
+  flex-direction: row;
 }
 main .cabecera .reproductor .music-container {
-  width: 90%;
-  min-width: 283px;
+  width: 50%;
+  min-width: 200px;
   max-width: 400px;
   border-radius: 28px;
   padding: 2.5px;
   display: flex;
   justify-content: center;
-  margin: 0 auto 36px;
+  margin: 28px auto;
   /*color y sombreado*/
-  background-color: #dbb50c;
+  background-color: #62bed8;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
 main .cabecera .reproductor .music-container audio {
@@ -82,7 +90,20 @@ main .cabecera .reproductor .music-container audio::-webkit-media-controls-panel
   background-color: transparent;
   box-shadow: none;
 }
+main .cabecera .logo-Clave {
+  margin-top: 6px;
+}
+main .cabecera .logo-Clave .logo-Clave-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .cabecera .logo-Clave .logo-Clave-Container img {
+  width: 100px;
+  height: auto;
+}
 main .notiClaveOnline {
+  margin-top: 10px;
   max-width: 100%;
   padding: 20px;
   background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);

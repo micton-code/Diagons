@@ -8,18 +8,21 @@ html {
   font-size: 62.5%;
 }
 
-.logoClaveOnline .logoPrincipal {
-  background-color: #ddb00d;
+.logo-Diagons {
+  background-color: #0d41ba;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 92px;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: #969a9c 1px solid;
 }
-.logoClaveOnline .logoPrincipal .logoPrincipal-container {
-  width: 320px;
-  height: 70px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  background-image: url(../images/claveMobile.jpeg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.logo-Diagons .logoPrincipal {
+  background-color: #0d41ba;
+  display: flex;
+  justify-content: flex-start;
 }
 
 main .cabecera {

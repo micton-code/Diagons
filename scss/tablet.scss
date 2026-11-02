@@ -1,3 +1,18 @@
+// 1. VARIABLES (Centralizamos todo para cambios rápidos):
+// 1.1 Fuentes de Texto
+$font-stack: "Roboto", sans-serif;
+// 1.2 Colores
+$color-clave: #0d41ba;
+$color-clave-light: #f7cc09;
+$color-bg-noticias: #fdf1bd;
+$color-whatsapp-start: #5eff7c;
+$color-whatsapp-end: #056104;
+$color-telegram-start: #32e1ed;
+$color-telegram-end: #1a8bdb;
+$color-texto-principal: #21211f;
+$color-blanco: #ffffff;
+// 1.3 Dimensiones
+$header-height: 92px; // Coincide exactamente con la altura del header
 *{
     box-sizing: border-box;
     margin: 0;
@@ -13,20 +28,23 @@ html{
 
 // CODIGO
 // HEADER (LOGO CLAVE ONLINE)
-.logoClaveOnline {
+.logo-Diagons {
+    background-color: $color-clave;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-height;
+    z-index: 1000;
+    //estilos visuales
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: #969a9c 1px solid;
     .logoPrincipal {
-        background-color: #ddb00d;
-        .logoPrincipal-container {
-            width: 320px;
-            height: 70px;
-            margin: 0 auto;
-            margin-bottom: 10px;
-            background-image: url(../images/claveMobile.jpeg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    }   
+        background-color: $color-clave;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
 }
 
 // MAIN
