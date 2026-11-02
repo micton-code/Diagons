@@ -102,6 +102,58 @@ main .cabecera .logo-Clave .logo-Clave-Container img {
   width: 100px;
   height: auto;
 }
+main .ventasDiagons-container {
+  margin-top: 10px;
+  max-width: 100%;
+  padding: 20px;
+  background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+}
+main .ventasDiagons-container h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #21211f;
+  margin-bottom: 3rem;
+}
+main .ventasDiagons-container .ventasDiagons-container-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+main .ventasDiagons-container .producto {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+main .ventasDiagons-container .producto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+main .ventasDiagons-container .producto img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px 0px 20px;
+}
+main .ventasDiagons-container .producto h3 {
+  font-size: 2rem;
+  text-shadow: #ddb00d 0.5px 0.5px 2px;
+  color: #21211f;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+main .ventasDiagons-container .producto p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333;
+  padding: 0 1rem 1rem;
+}
 main .notiClaveOnline {
   margin-top: 10px;
   max-width: 100%;
