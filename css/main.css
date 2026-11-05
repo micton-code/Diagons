@@ -1,3 +1,55 @@
+.ventasDiagons-container {
+  margin-top: 10px;
+  max-width: 100%;
+  padding: 20px;
+  background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+}
+.ventasDiagons-container h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #21211f;
+  margin-bottom: 3rem;
+}
+.ventasDiagons-container .ventasDiagons-container-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+.ventasDiagons-container .producto {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ventasDiagons-container .producto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+.ventasDiagons-container .producto img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 10px 0px 20px;
+}
+.ventasDiagons-container .producto h3 {
+  font-size: 2rem;
+  text-shadow: #ddb00d 0.5px 0.5px 2px;
+  color: #21211f;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+.ventasDiagons-container .producto p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333;
+  padding: 0 1rem 1rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,29 +94,41 @@ main .noticiasClave .container-noticiasClave .texto-noticiasClave .enlace-notici
   z-index: 1000;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   border-bottom: #969a9c 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .logo-Diagons .logoPrincipal {
   background-color: #0d41ba;
   height: 92px;
-  width: 320px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .logo-Diagons .logoPrincipal picture {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .logo-Diagons .logoPrincipal picture img {
-  max-width: 320px;
-  width: 70%;
+  max-width: 220px;
+  width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 main {
   width: 100%;
   margin-top: 102px;
+}
+main .cabecera {
+  display: flex;
+  flex-direction: column;
 }
 main .cabecera .reproductor {
   display: flex;
@@ -79,9 +143,8 @@ main .cabecera .reproductor .music-container {
   display: flex;
   justify-content: center;
   margin: 28px auto;
-  /*color y sombreado*/
   background-color: #62bed8;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Comentario corregido */
 }
 main .cabecera .reproductor .music-container audio {
   width: 100%;
@@ -101,110 +164,6 @@ main .cabecera .logo-Clave .logo-Clave-Container {
 main .cabecera .logo-Clave .logo-Clave-Container img {
   width: 100px;
   height: auto;
-}
-main .ventasDiagons-container {
-  margin-top: 10px;
-  max-width: 100%;
-  padding: 20px;
-  background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
-  border-radius: 8px;
-  font-family: "Roboto", sans-serif;
-}
-main .ventasDiagons-container h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  color: #21211f;
-  margin-bottom: 3rem;
-}
-main .ventasDiagons-container .ventasDiagons-container-info {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-}
-main .ventasDiagons-container .producto {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-main .ventasDiagons-container .producto:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-main .ventasDiagons-container .producto img {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin: 10px 0px 20px;
-}
-main .ventasDiagons-container .producto h3 {
-  font-size: 2rem;
-  text-shadow: #ddb00d 0.5px 0.5px 2px;
-  color: #21211f;
-  padding: 0.8rem 1rem;
-  margin: 1rem 0;
-}
-main .ventasDiagons-container .producto p {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  color: #333;
-  padding: 0 1rem 1rem;
-}
-main .notiClaveOnline {
-  margin-top: 10px;
-  max-width: 100%;
-  padding: 20px;
-  background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
-  border-radius: 8px;
-  font-family: "Roboto", sans-serif;
-}
-main .notiClaveOnline h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  color: #21211f;
-  margin-bottom: 3rem;
-}
-main .notiClaveOnline .noticias-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-}
-main .notiClaveOnline .noticia {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-main .notiClaveOnline .noticia:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-main .notiClaveOnline .noticia img {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin: 10px 0px 20px;
-}
-main .notiClaveOnline .noticia h3 {
-  font-size: 2rem;
-  text-shadow: #ddb00d 0.5px 0.5px 2px;
-  color: #21211f;
-  padding: 0.8rem 1rem;
-  margin: 1rem 0;
-}
-main .notiClaveOnline .noticia p {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  color: #333;
-  padding: 0 1rem 1rem;
 }
 main .publicidad .publicidad-container {
   width: 30rem;
@@ -336,4 +295,6 @@ footer .footer-container .down {
   text-align: center;
   background-color: orange;
   color: black;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

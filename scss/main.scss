@@ -1,33 +1,21 @@
-// 1. VARIABLES (Centralizamos todo para cambios rápidos):
-// 1.1 Fuentes de Texto
-$font-stack: "Roboto", sans-serif;
-// 1.2 Colores
-$color-clave: #0d41ba;
-$color-clave-light: #f7cc09;
-$color-bg-noticias: #fdf1bd;
-$color-whatsapp-start: #5eff7c;
-$color-whatsapp-end: #056104;
-$color-telegram-start: #32e1ed;
-$color-telegram-end: #1a8bdb;
-$color-texto-principal: #21211f;
-$color-blanco: #ffffff;
-// 1.3 Dimensiones
-$header-height: 92px; // Coincide exactamente con la altura del header
+// 1. Importar abstracts (variables, etc.) con as * para usar sin prefijos
+@use 'abstracts/variables' as *;
 
+// 2. Importar componentes o layouts
+@use 'components/producto-template';
 
-// 2. RESET Y CONFIGURACIÓN BASE
-*{
+// 3. RESET Y CONFIGURACIÓN BASE
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-html{
+html {
     font-size: 62.5%;
 }
 
-
-// 3. REUTILIZACIÓN (Placeholders)
-//3.1 Tarjetas de Redes Sociales (WhatsApp y Telegram)
+// 4. REUTILIZACIÓN (Placeholders)
+// 4.1 Tarjetas de Redes Sociales (WhatsApp y Telegram)
 %flex-social-card {
     display: flex;
     justify-content: space-evenly;
@@ -37,19 +25,19 @@ html{
     color: black;
     font-size: 1.6rem;
 }
-//3.1.1 Estructura de texto para noticias clave (WhatsApp y Telegram)
+
+// 4.1.1 Estructura de texto para noticias clave (WhatsApp y Telegram)
 %estructura-de-info-texto-noticiasClave {
     text-align: center;
     line-height: 30px;
-    h2{
+    h2 {
         font-size: 1.7rem;
     }
-    .texB{
+    .texB {
         font-size: 1.4rem;
     }
-    .enlace-noticiasClave{
-        
-        a{
+    .enlace-noticiasClave {
+        a {
             text-decoration: none;
             color: black;
         }
@@ -59,66 +47,72 @@ html{
 // CODIGO PRINCIPAL
 // 4. HEADER (LOGO DIAGONS)
 .logo-Diagons {
-    //anclaje superior fijo del header
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: $header-height;
     z-index: 1000;
-    //estilos visuales
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     border-bottom: #969a9c 1px solid;
     
-    // Logo Diagons
+    // Aseguramos que el header actúe como contenedor flexible para centrar el bloque interior
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     .logoPrincipal {
         background-color: $color-clave;
         height: $header-height;
-        width: 320px; // Limita el ancho máximo del logo
-        margin: 0 auto; // Centra el logo horizontalmente
+        width: 100%;
+        max-width: 100%; // Evita desbordamientos en pantallas muy pequeñas
+        margin: 0 auto;
         
+        display: flex;       // Convertimos el contenedor en flexbox
+        justify-content: center; // Centra horizontalmente el contenido (picture)
+        align-items: center;     // Centra verticalmente el contenido (picture)
+
         picture {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: auto;
+            height: 100%; // Ocupa todo el alto del padre para un centrado simétrico
+            
             img {
-                max-width: 320px; // Limita el tamaño máximo del logo
-                width: 70%;      // Ocupa todo el ancho disponible
-                height: auto;     // Mantiene la proporción de la imagen
+                max-width: 220px; // Ajusta este valor si deseas el logo más grande o más pequeño
+                width: 100%;
+                height: auto;     // Mantiene la proporción natural sin deformarse
+                object-fit: contain;
             }
         }
     }
 }
 
-// 5. MAIN
+// 6. MAIN
 main {
     width: 100%;
-    margin-top: $header-height + 10px; // Espacio justo después del header fijo
+    margin-top: $header-height + 10px;
 
-    // CABECERA
     .cabecera {
-        
-        // REPRODUCTOR
+        display: flex;
+        flex-direction: column;
+
         .reproductor {
             display: flex;
             flex-direction: row;
-            // Reproductor de la emisora
             .music-container {
-                //dimensiones del contenedor
                 width: 50%;
                 min-width: 200px;
                 max-width: 400px;
                 border-radius: 28px;
                 padding: 2.5px;
-                // alineacion
                 display: flex;
                 justify-content: center;
-                margin: 28px auto ;
-                /*color y sombreado*/
+                margin: 28px auto;
                 background-color: #62bed8;
-                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Comentario corregido */
+                
                 audio {
                     width: 100%;
                     &::-webkit-media-controls-panel {
@@ -128,6 +122,7 @@ main {
                 }
             }
         }
+        
         .logo-Clave {
             margin-top: 6px;
             .logo-Clave-Container {
@@ -139,140 +134,78 @@ main {
                     height: auto;
                 }
             }
-            
-        }
-
-    }
-
-    // VENTAS DIAGONS
-    .ventasDiagons-container {
-        margin-top: 10px;
-        max-width: 100%;
-        padding: 20px;
-        background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
-        border-radius: 8px;
-        font-family: $font-stack;
-
-        h2 {
-            text-align: center;
-            font-size: 2.4rem;
-            color: #21211f;
-            margin-bottom: 3rem;
-        }
-
-        .ventasDiagons-container-info {
-            display: flex;
-            flex-direction: column;
-            gap: 3.5rem;
-        }
-
-        .producto {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-            &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-            }
-
-            img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            margin: 10px 0px 20px;
-            }
-
-            h3 {
-            font-size: 2rem;
-            text-shadow: #ddb00d 0.5px 0.5px 2px;
-            color: #21211f;
-            padding: 0.8rem 1rem;
-            margin: 1rem 0;
-            }
-
-            p {
-            font-size: 1.6rem;
-            line-height: 1.6;
-            color: #333;
-            padding: 0 1rem 1rem;
-            }
         }
     }
 
     // NOTICIAS CLAVE ONLINE
-    .notiClaveOnline {
-        margin-top: 10px;
-        max-width: 100%;
-        padding: 20px;
-        background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
-        border-radius: 8px;
-        font-family: $font-stack;
+    // .notiClaveOnline {
+    //     margin-top: 10px;
+    //     max-width: 100%;
+    //     padding: 20px;
+    //     background: linear-gradient(50deg, rgb(238, 231, 199) 10%, rgb(237, 235, 225) 50%, rgb(242, 241, 228) 100%);
+    //     border-radius: 8px;
+    //     font-family: $font-stack;
 
-        h2 {
-            text-align: center;
-            font-size: 2.4rem;
-            color: #21211f;
-            margin-bottom: 3rem;
-        }
+    //     h2 {
+    //         text-align: center;
+    //         font-size: 2.4rem;
+    //         color: #21211f;
+    //         margin-bottom: 3rem;
+    //     }
 
-        .noticias-container {
-            display: flex;
-            flex-direction: column;
-            gap: 3.5rem;
-        }
+    //     .noticias-container {
+    //         display: flex;
+    //         flex-direction: column;
+    //         gap: 3.5rem;
+    //     }
 
-        .noticia {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+    //     .noticia {
+    //         background: #fff;
+    //         border-radius: 8px;
+    //         overflow: hidden;
+    //         box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    //         display: flex;
+    //         flex-direction: column;
+    //         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-            &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-            }
+    //         &:hover {
+    //             transform: translateY(-3px);
+    //             box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    //         }
 
-            img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            margin: 10px 0px 20px;
-            }
+    //         img {
+    //             width: 100%;
+    //             height: auto;
+    //             object-fit: cover;
+    //             margin: 10px 0px 20px;
+    //         }
 
-            h3 {
-            font-size: 2rem;
-            text-shadow: #ddb00d 0.5px 0.5px 2px;
-            color: #21211f;
-            padding: 0.8rem 1rem;
-            margin: 1rem 0;
-            }
+    //         h3 {
+    //             font-size: 2rem;
+    //             text-shadow: #ddb00d 0.5px 0.5px 2px;
+    //             color: #21211f;
+    //             padding: 0.8rem 1rem;
+    //             margin: 1rem 0;
+    //         }
 
-            p {
-            font-size: 1.6rem;
-            line-height: 1.6;
-            color: #333;
-            padding: 0 1rem 1rem;
-            }
-        }
-    }
+    //         p {
+    //             font-size: 1.6rem;
+    //             line-height: 1.6;
+    //             color: #333;
+    //             padding: 0 1rem 1rem;
+    //         }
+    //     }
+    // }
 
-    //PUBLICIDAD
+    // PUBLICIDAD
     .publicidad {
-        .publicidad-container{
-            //dimensiones
+        .publicidad-container {
             width: 30rem;
             height: 20rem;
             position: relative;
             overflow: hidden;
             margin: 30px auto;
+            
             .ad-image {
                 width: 100%;
                 height: 100%;
@@ -282,6 +215,7 @@ main {
                 left: 0;
                 opacity: 0;
                 transition: opacity 0.5s ease-in-out;
+                
                 &.active {
                     opacity: 1;
                 }
@@ -291,6 +225,7 @@ main {
             display: flex;
             justify-content: space-evenly;
             margin-bottom: 30px;
+            
             #prevButton, #nextButton {
                 background-color: #2168d3;
                 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
@@ -298,17 +233,13 @@ main {
                 padding: 10px 15px;
                 border: .2px solid rgba(75, 73, 73, 0);
                 border-radius: 8px;
-
                 cursor: pointer;
-
-
             }
         }
     }
 
-    //PRESENTACION EMISORA
-    .presentacionEmisora{
-        // TITULO
+    // PRESENTACION EMISORA
+    .presentacionEmisora {
         h1 {
             font-family: $font-stack;
             text-align: center;
@@ -316,7 +247,6 @@ main {
             color: black;
             margin: 60px 0 30px;
         }
-        //PRESENTACION
         .presentacion {
             text-align: justify;
             padding: 0 20px 40px;
@@ -328,38 +258,37 @@ main {
         }
     }
 
-    //NOTICIAS CLAVE
-    .noticiasClave{
-        //telegram
-        .container-noticiasClave-telegram{
+    // NOTICIAS CLAVE
+    .noticiasClave {
+        .container-noticiasClave-telegram {
             @extend %flex-social-card;
-            background: linear-gradient(54deg,$color-blanco 10%, $color-telegram-start 50%, $color-telegram-end 100%);
-            .img-noticiasClave-telegram{
-                .icoTele{
+            background: linear-gradient(54deg, $color-blanco 10%, $color-telegram-start 50%, $color-telegram-end 100%);
+            
+            .img-noticiasClave-telegram {
+                .icoTele {
                     width: 50px;
                 }
             }
-            .texto-noticiasClave{
+            .texto-noticiasClave {
                 @extend %estructura-de-info-texto-noticiasClave;
-        }    
+            }    
         }
-        //whatsapp
-        .container-noticiasClave{
+        
+        .container-noticiasClave {
             @extend %flex-social-card;
-            background: linear-gradient(169deg,$color-blanco 10%, $color-whatsapp-start 50%, $color-whatsapp-end 100%);
-            .img-noticiasClave{
-                .icoWhats{
+            background: linear-gradient(169deg, $color-blanco 10%, $color-whatsapp-start 50%, $color-whatsapp-end 100%);
+            
+            .img-noticiasClave {
+                .icoWhats {
                     width: 50px;
                 }
             }
-            .texto-noticiasClave{
+            .texto-noticiasClave {
                 @extend %estructura-de-info-texto-noticiasClave;
             }
         }
     }
 
-   
-    //CAJA DE COMENTARIOS (revisar)
     .cajaDeComentarios {
         display: flex;
         justify-content: center;
@@ -369,21 +298,22 @@ main {
     }
 
     .sobreClave {
-            text-align: justify;
-            padding: 30px 20px;
-            background-color: #fdf1bd;
-            h2{
-                font-family: $font-stack;
-                text-align: center;
-                font-size: 2rem;
-                color: black;
-                margin-bottom: 10px;
-            }
-            p {
-                font-family: $font-stack;
-                font-size: 1.6rem;
-                color: black;
-            }
+        text-align: justify;
+        padding: 30px 20px;
+        background-color: #fdf1bd;
+        
+        h2 {
+            font-family: $font-stack;
+            text-align: center;
+            font-size: 2rem;
+            color: black;
+            margin-bottom: 10px;
+        }
+        p {
+            font-family: $font-stack;
+            font-size: 1.6rem;
+            color: black;
+        }
     }
 }
 
@@ -392,11 +322,12 @@ footer {
     width: 100%;
     height: auto;
     .footer-container {
-        .up{
+        .up {
             display: flex;
             width: 100%;
             height: 130px;
             background-color: orange;
+            
             section {
                 display: flex;
                 width: 50%;
@@ -410,6 +341,7 @@ footer {
                     font-weight: 300;
                     line-height: 1.8rem;
                     list-style: none;
+                    
                     li {
                         margin: 10px 0;
                         a {
